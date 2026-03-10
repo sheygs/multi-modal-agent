@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Multi-Modal AI Agent
+
+A modern, responsive, and powerful AI chat agent built with Next.js, Vercel AI SDK, and Tailwind CSS v4. This agent supports multi-modal interactions, allowing users to send text, images, and PDF documents for processing.
+
+## Features
+
+- **Multi-Modal Support**: Chat with AI using text, images, and PDFs.
+- **Rich File Previews**: In-chat previews for images and full-featured PDF viewing.
+- **Modern UI**: A clean, borderless, and responsive interface using Tailwind CSS v4.
+- **Streaming Responses**: Real-time AI response streaming for a better user experience.
+- **Type-Safe**: Built entirely with TypeScript for better developer experience and reliability.
+
+## Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **AI Integration**: [Vercel AI SDK](https://sdk.vercel.ai/docs) (`ai`, `@ai-sdk/react`)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Node.js](https://nodejs.org/) (v22+ recommended)
+- [pnpm](https://pnpm.io/) (v8+ recommended)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository**:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   git clone <repository-url>
+   cd multi-modal-agent
+   ```
 
-## Learn More
+2. **Install dependencies**:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   pnpm install
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Configure Environment Variables**:
+   Create a `.env.local` file in the root directory and add your API key:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   cp .env.example .env.local
+   ```
 
-## Deploy on Vercel
+   Then edit `.env.local` with your actual credentials:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```env
+   AI_GATEWAY_API_KEY=your_actual_api_key_here
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Run the development server**:
+
+   ```bash
+   pnpm dev
+   ```
+
+5. **Open the application**:
+   Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Project Structure
+
+- `app/api/chat/route.ts`: API route handling the AI chat logic.
+- `app/page.tsx`: Main chat interface.
+- `components/ChatForm.tsx`: Custom chat input with file attachment support.
+- `components/MessagePart.tsx`: Component for rendering different message parts (text, image, PDF).
+- `lib/chats.ts`: Chat-related utility functions.
+- `lib/file.ts`: File processing and data URL conversion utilities.
+
+## Setup
+
+To ensure the agent works correctly, you need:
+
+- **API Access**: An active API key from your AI provider.
+- **Environment**: The `AI_GATEWAY_API_KEY` must be set in your `.env.local`.
+
+## Development
+
+- `pnpm dev`: Start development server.
+- `pnpm build`: Create an optimized production build.
+- `pnpm lint`: Run ESLint for code quality checks.
