@@ -1,17 +1,19 @@
 import type { Metadata, Viewport } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Fraunces, Space_Mono } from 'next/font/google';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const fraunces = Fraunces({
+  variable: '--font-fraunces',
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '700'],
+  style: ['normal', 'italic'],
   display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const spaceMono = Space_Mono({
+  variable: '--font-space-mono',
   subsets: ['latin'],
+  weight: ['400', '700'],
   display: 'swap',
 });
 
@@ -20,15 +22,12 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
-  ],
+  themeColor: '#0c0b09',
 };
 
 export const metadata: Metadata = {
   title: {
-    default: 'MultiModal AI Agent',
+    default: 'MultiModal Agent',
     template: '%s | MultiModal AI',
   },
   description:
@@ -45,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased min-h-screen selection:bg-blue-100 selection:text-blue-900 dark:selection:bg-blue-900 dark:selection:text-blue-100`}
+        className={`${fraunces.variable} ${spaceMono.variable} antialiased min-h-screen`}
       >
         {children}
       </body>
